@@ -1,3 +1,5 @@
+use rayon::prelude::*;
+
 #[derive(Debug)]
 struct TargetRange {
     dest_start: usize,
@@ -95,8 +97,7 @@ fn part_one(data: &str) -> usize {
         }
         l += 1;
     }
-    let mut destination_locations: Vec<usize> = vec![];
-    for seed in seeds {
+    let mut destination_locations: Vec<usize> = seeds.into_par_iter().map(|seed| {
         //dbg!(&seed);
         // Convert to soil location
         let mut soil_loc: usize = seed;
@@ -164,8 +165,8 @@ fn part_one(data: &str) -> usize {
            }
         }
         //dbg!(&dest_loc);
-        destination_locations.push(dest_loc);
-    }
+        dest_loc
+    }).collect();
     //dbg!(&destination_locations);
 
     destination_locations.sort();
@@ -211,9 +212,4 @@ mod tests {
         assert_eq!(46, part_one(data));
     }
 
-//    #[test]
-//    fn two() {
-//        let data = include_str!("test.txt");
-//        assert_eq!(, part_two(data));
-//    }
 }

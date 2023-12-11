@@ -205,9 +205,4 @@ mod tests {
         assert_eq!(35, part_one(data));
     }
 
-//    #[test]
-//    fn two() {
-//        let data = include_str!("test.txt");
-//        assert_eq!(, part_two(data));
-//    }
 }
