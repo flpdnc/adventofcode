@@ -4,12 +4,9 @@ pub fn main() {
 }
 
 fn part_one(data: &str) -> usize {
-    data.lines().map(read_line).map(|(m, c)| m - c).sum()
-}
-
-fn read_line(line: &str) -> (usize, usize) {
     unimplemented!();
 }
+
 
 #[cfg(test)]
 mod tests {
@@ -22,9 +19,4 @@ mod tests {
         assert_eq!(, part_one(data));
     }
 
-//    #[test]
-//    fn two() {
-//        let data = include_str!("test.txt");
-//        assert_eq!(, part_two(data));
-//    }
 }
